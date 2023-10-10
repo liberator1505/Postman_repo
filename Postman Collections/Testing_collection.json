@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "d0e167cf-743f-48ce-9b4f-11bffd4818f7",
+		"name": "Testing_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fd6f3090-1161-4bf8-a328-5d161e596706",
+								"exec": [
+									"console.log(\"Hello world\");\r",
+									"\r",
+									"let urlVar =  pm.variables.get(\"url\");\r",
+									"console.log(\"Value for url variables is:\"+urlVar);\r",
+									"\r",
+									"pm.variables.set(\"Name\",\"POSTMAN\");\r",
+									"console.log(pm.variables.get(\"Name\"));\r",
+									"let globalVar = pm.globals.get(\"Env\");\r",
+									"console.log(globalVar)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c0009f1e-8d6a-4be6-b4fc-9f49b9d2f9f9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/api/users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "User List",
+					"id": "1b6540f1-6ff5-4e2d-a56a-82c606afec38",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users?page=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ScriptsTest",
+					"id": "aa0d2ab6-7e85-486e-825f-3f1e065e59f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "a36ed2be-c107-4163-965c-f281ed3a76ce"
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "User registration",
+					"id": "173cbe5f-2a79-43fc-816c-be58c3729003",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}"
+						},
+						"url": "https://reqres.in/{{endpoint}}"
+					},
+					"response": []
+				}
+			],
+			"id": "7a006dda-139f-47a4-bb76-c16f4dfa1885"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c993a90d-8e42-450b-a2cb-ebe3ecefa6b8",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"Hello world\");",
+					"",
+					"let urlVar =  pm.variables.get(\"url\");",
+					"console.log(\"Value for url variables is:\"+urlVar);",
+					"",
+					"pm.variables.set(\"Name\",\"POSTMAN\");",
+					"console.log(pm.variables.get(\"Name\"));",
+					"let globalVar = pm.globals.get(\"Env\");",
+					"console.log(globalVar)"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fa197932-9869-4d21-9742-831d48a99e05",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://reqres.in",
+			"type": "string"
+		}
+	]
+}
