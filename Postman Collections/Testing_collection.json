@@ -43,6 +43,23 @@
 				},
 				{
 					"name": "User List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3af53569-8a97-4084-87eb-ca10797cee8e",
+								"exec": [
+									"pm.test(\"Verify response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "1b6540f1-6ff5-4e2d-a56a-82c606afec38",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
