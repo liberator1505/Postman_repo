@@ -58,6 +58,16 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a65b80cc-2b29-46a6-87ec-c073946dd2be",
+								"exec": [
+									"console.log(\"I am in pre-request script session\")"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"id": "1b6540f1-6ff5-4e2d-a56a-82c606afec38",
